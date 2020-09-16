@@ -7,3 +7,8 @@
   text-align: center;
   justify-content: center;
 }
+
+#moveBoxDown {
+  display: inline;
+  position: absolute;
+}
