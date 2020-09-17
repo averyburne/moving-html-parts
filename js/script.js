@@ -1,4 +1,5 @@
 const box = $('#moving-box')
+const pane = $('#pane')
 
 function moveDown() {
   box.style.position = 'absolute'
@@ -31,18 +32,28 @@ function moveLeft() {
 document.addEventListener('keydown', function(e) {
   let topValue = box.css('top')
   let leftValue = box.css('left')
-  console.log(e.which)
+  const width = pane.width() - box.width()
+  const height = pane.height() - box.height() + 8
+  console.log(width)
+  // moving down with down arrow or S
   if (e.which === 40 || e.which === 83) {
-    // let leftNumbers = box.style.left.replace('px', '')
-    // let left = parseInt(leftNumbers, 10)
-    //
-    // box.style.left = `${left + 1}px`
-    box.css('top', parseInt(topValue, 10) + 10 + 'px')
-    console.log('hello')
+    if (parseInt(topValue, 10) >= height) {
+      box.css('top', height + 'px')
+    } else {
+      box.css('top', parseInt(topValue, 10) + 10 + 'px')
+    }
+    // moving up with the up arrow or W
   } else if (e.which === 38 || e.which === 87) {
-    box.css('top', parseInt(topValue, 10) - 10 + 'px')
+    if (parseInt(topValue, 10) <= 10) {
+      box.css('top', '10px')
+    } else {
+      box.css('top', parseInt(topValue, 10) - 10 + 'px')
+    }
+    // moving left with left arrow or A
   } else if (e.which === 37 || e.which === 65) {
     box.css('left', parseInt(leftValue, 10) - 10 + 'px')
+    console.log(box.css('left'))
+    // moving right with right arrow or D
   } else if (e.which === 39 || e.which === 68) {
     box.css('left', parseInt(leftValue, 10) + 10 + 'px')
   }

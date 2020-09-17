@@ -1,3 +1,8 @@
+#pane {
+  height: 100vh;
+  border: 1px solid black;
+}
+
 #moving-box {
   background-color: rgba(255, 0, 0, 0.5);
   position: absolute;
@@ -9,6 +14,7 @@
   justify-content: center;
   top: 10px;
   left: 10px;
+  right: 0px;
 }
 
 #moveBoxDown {
