@@ -1,4 +1,4 @@
-const box = document.getElementById('moving-box')
+const box = $('#moving-box')
 
 function moveDown() {
   box.style.position = 'absolute'
@@ -29,16 +29,18 @@ function moveLeft() {
 }
 
 document.addEventListener('keydown', function(e) {
+  console.log(box.css('top'))
   if (e.which === 40) {
     // let leftNumbers = box.style.left.replace('px', '')
     // let left = parseInt(leftNumbers, 10)
     //
     // box.style.left = `${left + 1}px`
-    box.style.top = '100px'
+    box.css('top', '100px')
+    console.log(box.css('top'))
   } else if (e.which === 38) {
     box.style.top = '0px'
   } else if (e.which === 37) {
-    box.style.right = "100px"
+    box.style.right = '100px'
   } else if (e.which === 39) {
     box.style.left = '100px'
   }
