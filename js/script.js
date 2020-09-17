@@ -29,10 +29,14 @@ function moveLeft() {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.which === 37) {
-    let leftNumbers = box.style.left.replace('px', '')
-    let left = parseInt(leftNumbers, 10)
-
-    box.style.left = `${left + 1}px`
+  if (e.which === 40) {
+    // let leftNumbers = box.style.left.replace('px', '')
+    // let left = parseInt(leftNumbers, 10)
+    //
+    // box.style.left = `${left + 1}px`
+    box.style.top = '100px'
+  }
+  else if (e.which === 38) {
+    box.style.top = '0px'
   }
 })
