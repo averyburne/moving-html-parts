@@ -6,6 +6,8 @@
   display: flexbox;
   text-align: center;
   justify-content: center;
+  margin-top: 10px;
+  top: 10px;
 }
 
 #moveBoxDown {

@@ -1,8 +1,16 @@
 
 function moveDown() {
-  box = document.getElementById('moving-box')
+  const box = document.getElementById('moving-box')
   box.style.position = 'absolute'
-  box.style.top++
-  box.style.right++
-  console.log('peen')
+  box.style.top = '100px'
+  // box.style.right++
+  console.log(box.style)
+}
+
+function moveUp() {
+  const box = document.getElementById('moving-box')
+  box.style.position = 'absolute'
+  box.style.left = '100px'
+  // box.style.right++
+  console.log(box.style)
 }
