@@ -1,16 +1,20 @@
 #moving-box {
   background-color: rgba(255, 0, 0, 0.5);
+  position: absolute;
   width: 80px;
   height: 80px;
   line-height: 80px;
   display: flexbox;
   text-align: center;
   justify-content: center;
-  margin-top: 10px;
   top: 10px;
 }
 
 #moveBoxDown {
   display: inline;
   position: absolute;
+}
+
+.btn {
+  margin-left: 100px;
 }
