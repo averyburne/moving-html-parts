@@ -32,7 +32,7 @@ function moveLeft() {
 document.addEventListener('keydown', function(e) {
   let topValue = box.css('top')
   let leftValue = box.css('left')
-  const width = pane.width() - box.width()
+  const width = pane.width() - box.width() + 8
   const height = pane.height() - box.height() + 8
   console.log(width)
   // moving down with down arrow or S
@@ -51,10 +51,17 @@ document.addEventListener('keydown', function(e) {
     }
     // moving left with left arrow or A
   } else if (e.which === 37 || e.which === 65) {
-    box.css('left', parseInt(leftValue, 10) - 10 + 'px')
-    console.log(box.css('left'))
+    if (parseInt(leftValue, 10) <= 10) {
+      box.css('left', '10px')
+    } else {
+      box.css('left', parseInt(leftValue, 10) - 10 + 'px')
+    }
     // moving right with right arrow or D
   } else if (e.which === 39 || e.which === 68) {
-    box.css('left', parseInt(leftValue, 10) + 10 + 'px')
+    if (parseInt(leftValue, 10) >= width) {
+      box.css('left', width + 'px')
+    } else {
+      box.css('left', parseInt(leftValue, 10) + 10 + 'px')
+    }
   }
 })
