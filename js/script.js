@@ -30,19 +30,20 @@ function moveLeft() {
 
 document.addEventListener('keydown', function(e) {
   let topValue = box.css('top')
-  console.log(topValue)
-  if (e.which === 40) {
+  let leftValue = box.css('left')
+  console.log(e.which)
+  if (e.which === 40 || e.which === 83) {
     // let leftNumbers = box.style.left.replace('px', '')
     // let left = parseInt(leftNumbers, 10)
     //
     // box.style.left = `${left + 1}px`
-    console.log(parseInt(topValue, 10) + 10 + 'px')
     box.css('top', parseInt(topValue, 10) + 10 + 'px')
-  } else if (e.which === 38) {
-    box.style.top = '0px'
-  } else if (e.which === 37) {
-    box.style.right = '100px'
-  } else if (e.which === 39) {
-    box.style.left = '100px'
+    console.log('hello')
+  } else if (e.which === 38 || e.which === 87) {
+    box.css('top', parseInt(topValue, 10) - 10 + 'px')
+  } else if (e.which === 37 || e.which === 65) {
+    box.css('left', parseInt(leftValue, 10) - 10 + 'px')
+  } else if (e.which === 39 || e.which === 68) {
+    box.css('left', parseInt(leftValue, 10) + 10 + 'px')
   }
 })
