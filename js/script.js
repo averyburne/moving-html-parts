@@ -35,8 +35,11 @@ document.addEventListener('keydown', function(e) {
     //
     // box.style.left = `${left + 1}px`
     box.style.top = '100px'
-  }
-  else if (e.which === 38) {
+  } else if (e.which === 38) {
     box.style.top = '0px'
+  } else if (e.which === 37) {
+    box.style.right = "100px"
+  } else if (e.which === 39) {
+    box.style.left = '100px'
   }
 })
