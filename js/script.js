@@ -28,7 +28,7 @@ document.addEventListener('keydown', function(e) {
   } else if (e.which === 39 || e.which === 37 || e.which === 68 || e.which === 65) {
     box.css('left', moveBox(width, leftValue, e.which))
   }
-  if (leftValueBall <= (leftValue + 80)) {
+  if (leftValueBall <= (leftValue + 80) && (topValueBall <= (topValue + 60) && topValueBall >= (topValue - 20))) {
     ball.css('left', (parseInt(leftValueBall, 10) + 50 + 'px'))
   }
 })
