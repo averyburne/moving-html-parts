@@ -1,7 +1,7 @@
 const box = $('#moving-box')
 const pane = $('#pane')
 
-const checkHeight = function (maxValue, currentValue, key) {
+const checkValidity = function (maxValue, currentValue, key) {
   if (currentValue + 10 >= maxValue && (key === 40 || key === 39 || key === 83 || key === 68)) {
     return parseInt(maxValue, 10) + 'px'
   } else if (currentValue - 10 <= 10 && (key === 38 || key === 37 || key === 87 || key === 65)) {
@@ -20,9 +20,9 @@ document.addEventListener('keydown', function(e) {
   const height = pane.height() - box.height() + 8
   // moving down with up or down with arrows/WS
   if (e.which === 40 || e.which === 38 || e.which === 83 || e.which === 87) {
-    box.css('top', checkHeight(height, topValue, e.which))
+    box.css('top', checkValidity(height, topValue, e.which))
     // moving left with left arrow or A
   } else if (e.which === 39 || e.which === 37 || e.which === 68 || e.which === 65) {
-    box.css('left', checkHeight(width, leftValue, e.which))
+    box.css('left', checkValidity(width, leftValue, e.which))
   }
 })
