@@ -1,54 +1,27 @@
 const box = $('#moving-box')
 const pane = $('#pane')
 
-function moveDown() {
-  box.style.position = 'absolute'
-  box.style.top = '100px'
-  // box.style.right++
-  console.log(box.style)
-}
-
-function moveUp() {
-  box.style.position = 'absolute'
-  box.style.top = '0px'
-  // box.style.right++
-  console.log(box.style)
-}
-
-function moveRight() {
-  box.style.position = 'absolute'
-  box.style.right = '100px'
-  // box.style.right++
-  console.log(box.style)
-}
-
-function moveLeft() {
-  box.style.position = 'absolute'
-  box.style.right = '1px'
-  // box.style.right++
-  console.log(box.style)
+const checkHeight = function (maxValue, currentValue, keyPressed) {
+  if (currentValue + 10 >= maxValue && keyPressed === 40) {
+    return parseInt(maxValue, 10) + 'px'
+  } else if (currentValue - 10 <= 10 && keyPressed === 38) {
+    return '10px'
+  } else if (keyPressed === 40) {
+    return (parseInt(currentValue, 10) + 10 + 'px')
+  } else if (keyPressed === 38) {
+    return (parseInt(currentValue, 10) - 10 + 'px')
+  }
 }
 
 document.addEventListener('keydown', function(e) {
-  let topValue = box.css('top')
+  let topValue = parseInt(box.css('top'), 10)
   let leftValue = box.css('left')
   const width = pane.width() - box.width() + 8
   const height = pane.height() - box.height() + 8
-  console.log(width)
+  console.log(checkHeight(height, topValue, e.which))
   // moving down with down arrow or S
-  if (e.which === 40 || e.which === 83) {
-    if (parseInt(topValue, 10) >= height) {
-      box.css('top', height + 'px')
-    } else {
-      box.css('top', parseInt(topValue, 10) + 10 + 'px')
-    }
-    // moving up with the up arrow or W
-  } else if (e.which === 38 || e.which === 87) {
-    if (parseInt(topValue, 10) <= 10) {
-      box.css('top', '10px')
-    } else {
-      box.css('top', parseInt(topValue, 10) - 10 + 'px')
-    }
+  if (e.which === 40 || e.which === 38 || e.which === 83 || e.which === 87) {
+    box.css('top', checkHeight(height, topValue, e.which))
     // moving left with left arrow or A
   } else if (e.which === 37 || e.which === 65) {
     if (parseInt(leftValue, 10) <= 10) {
