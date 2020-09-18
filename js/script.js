@@ -1,7 +1,8 @@
 const box = $('#moving-box')
 const pane = $('#pane')
+const ball = $('#ball')
 
-const checkValidity = function (maxValue, currentValue, key) {
+const moveBox = function (maxValue, currentValue, key) {
   if (currentValue + 10 >= maxValue && (key === 40 || key === 39 || key === 83 || key === 68)) {
     return parseInt(maxValue, 10) + 'px'
   } else if (currentValue - 10 <= 10 && (key === 38 || key === 37 || key === 87 || key === 65)) {
@@ -16,13 +17,18 @@ const checkValidity = function (maxValue, currentValue, key) {
 document.addEventListener('keydown', function(e) {
   let topValue = parseInt(box.css('top'), 10)
   let leftValue = parseInt(box.css('left'), 10)
+  let topValueBall = parseInt(ball.css('top'), 10)
+  let leftValueBall = parseInt(ball.css('left'), 10)
   const width = pane.width() - box.width() + 8
   const height = pane.height() - box.height() + 8
   // moving down with up or down with arrows/WS
   if (e.which === 40 || e.which === 38 || e.which === 83 || e.which === 87) {
-    box.css('top', checkValidity(height, topValue, e.which))
+    box.css('top', moveBox(height, topValue, e.which))
     // moving left with left arrow or A
   } else if (e.which === 39 || e.which === 37 || e.which === 68 || e.which === 65) {
-    box.css('left', checkValidity(width, leftValue, e.which))
+    box.css('left', moveBox(width, leftValue, e.which))
+  }
+  if (leftValueBall <= (leftValue + 80)) {
+    ball.css('left', (parseInt(leftValueBall, 10) + 50 + 'px'))
   }
 })

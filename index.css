@@ -17,6 +17,18 @@
   right: 0px;
 }
 
+#ball {
+  background-color: rgba(0, 0, 255, 0.5);
+  position: absolute;
+  text-align: center;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  top: 300px;
+  left: 400px;
+  border-radius: 100%;
+}
+
 #moveBoxDown {
   display: inline;
   position: absolute;
