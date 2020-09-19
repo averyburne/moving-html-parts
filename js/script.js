@@ -28,7 +28,13 @@ document.addEventListener('keydown', function(e) {
   } else if (e.which === 39 || e.which === 37 || e.which === 68 || e.which === 65) {
     box.css('left', moveBox(width, leftValue, e.which))
   }
-  if (leftValueBall <= (leftValue + 80) && (topValueBall <= (topValue + 60) && topValueBall >= (topValue - 20))) {
+  if (leftValueBall <= (leftValue + 80) && (topValueBall <= (topValue + 60) && topValueBall >= (topValue - 20)) && (e.which === 68 || e.which === 39)) {
     ball.css('left', (parseInt(leftValueBall, 10) + 50 + 'px'))
+  } else if (leftValueBall >= (leftValue - 40) && (topValueBall <= (topValue + 60) && topValueBall >= (topValue - 20)) && (e.which === 65 || e.which === 37)) {
+    ball.css('left', parseInt(leftValueBall, 10) - 50 + 'px')
+  } else if (topValueBall <= (topValue + 80) && (leftValueBall <= (leftValue + 60)) && leftValueBall >= (leftValue - 20) && (e.which === 83 || e.which === 40)) {
+    ball.css('top', parseInt(topValueBall, 10) + 50 + 'px')
+  } else if (topValueBall >= (topValue - 20) && (leftValueBall <= (leftValue + 60)) && leftValueBall >= (leftValue - 20) && (e.which === 87 || e.which === 38)) {
+    ball.css('top', parseInt(topValueBall, 10) - 50 + 'px')
   }
 })
