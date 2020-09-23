@@ -17,6 +17,17 @@
   right: 0px;
 }
 
+#moving-box2 {
+  background-color: rgba(0, 255, 0, 0.5);
+  position: absolute;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  top: 10px;
+  left: 600px;
+}
+
 #ball {
   background-color: rgba(0, 0, 255, 0.5);
   position: absolute;
