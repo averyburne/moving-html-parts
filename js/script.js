@@ -31,8 +31,10 @@ document.addEventListener('keydown', function(e) {
 
   keys.push(e.which)
   console.log(keys)
-  if (keys.length > 1) {
-    console.log('peen')
+  console.log(keys.includes(83))
+  if (keys.includes(83) && keys.includes(68)) {
+    box.css('top', moveBox(height, topValue, 83))
+    box.css('left', moveBox(width, leftValue, 68))
   }
   // moving down with up with W and down with S
   if (e.which === 83 || e.which === 87) {
@@ -86,5 +88,12 @@ document.addEventListener('keydown', function(e) {
     // moves ball up
   } else if ((topValueBall >= (topValue - 40) && topValueBall <= (topValue + 80)) && (leftValueBall <= (leftValue + 60)) && leftValueBall >= (leftValue - 20) && e.which === 38) {
     ball.css('top', parseInt(topValueBall, 10) - 50 + 'px')
+  }
+})
+
+document.addEventListener('keyup', function(e) {
+  const index = keys.indexOf(e.which)
+  if (index > -1) {
+    keys.splice(index, 1)
   }
 })
