@@ -19,6 +19,8 @@ const moveBox = function (maxValue, currentValue, key) {
   }
 }
 
+let keys = []
+let keysCount = 0
 document.addEventListener('keydown', function(e) {
   let topValue = parseInt(box.css('top'), 10)
   let leftValue = parseInt(box.css('left'), 10)
@@ -26,6 +28,12 @@ document.addEventListener('keydown', function(e) {
   let leftValueBall = parseInt(ball.css('left'), 10)
   const width = pane.width() - box.width() + 8
   const height = pane.height() - box.height() + 8
+
+  keys.push(e.which)
+  console.log(keys)
+  if (keys.length > 1) {
+    console.log('peen')
+  }
   // moving down with up with W and down with S
   if (e.which === 83 || e.which === 87) {
     box.css('top', moveBox(height, topValue, e.which))
