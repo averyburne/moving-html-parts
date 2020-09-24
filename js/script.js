@@ -81,8 +81,29 @@ document.addEventListener('keydown', function(e) {
   let leftValueBall = parseInt(ball.css('left'), 10)
   const width = pane.width() - box2.width() + 8
   const height = pane.height() - box2.height() + 8
-  console.log(ball.css('left'))
-  console.log(box.css('left'))
+
+  if (keys.includes(e.which) == false) {
+    keys.push(e.which)
+  }
+  console.log(keys)
+  console.log(keys.includes(83))
+  // move right and down
+  if (keys.includes(40) && keys.includes(39)) {
+    box2.css('top', moveBox(height, topValue, 83))
+    box2.css('left', moveBox(width, leftValue, 68))
+    // move left and down
+  } else if (keys.includes(40) && keys.includes(37)) {
+    box2.css('top', moveBox(height, topValue, 83))
+    box2.css('left', moveBox(width, leftValue, 65))
+    // move right and up
+  } else if (keys.includes(38) && keys.includes(39)) {
+    box2.css('top', moveBox(height, topValue, 87))
+    box2.css('left', moveBox(width, leftValue, 68))
+    // move left and up
+  } else if (keys.includes(38) && keys.includes(37)) {
+    box2.css('top', moveBox(height, topValue, 87))
+    box2.css('left', moveBox(width, leftValue, 65))
+  }
   // moves box up with up arrow and down with down arrow
   if (e.which === 40 || e.which === 38) {
     box2.css('top', moveBox(height, topValue, e.which))
