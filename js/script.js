@@ -52,10 +52,10 @@ document.addEventListener('keydown', function(e) {
     box.css('left', moveBox(width, leftValue, 65))
   }
   // moving down with up with W and down with S
-  if (e.which === 83 || e.which === 87) {
+  else if (keys.includes(87) || keys.includes(83)) {
     box.css('top', moveBox(height, topValue, e.which))
     // moving left with A and right with D
-  } else if (e.which === 68 || e.which === 65) {
+  } else if (keys.includes(68) || keys.includes(65)) {
     box.css('left', moveBox(width, leftValue, e.which))
   }
   // Setting up conditionals to check if the box is close enough to the ball to move it
@@ -105,10 +105,10 @@ document.addEventListener('keydown', function(e) {
     box2.css('left', moveBox(width, leftValue, 65))
   }
   // moves box up with up arrow and down with down arrow
-  if (e.which === 40 || e.which === 38) {
+  else if (keys.includes(38) || keys.includes(40)) {
     box2.css('top', moveBox(height, topValue, e.which))
     // moves box left with left arrow and right with right arrow
-  } else if (e.which === 39 || e.which === 37) {
+  } else if (keys.includes(37) || keys.includes(39)) {
     box2.css('left', moveBox(width, leftValue, e.which))
   }
   // Setting up conditionals to check if the box is close enough to the ball to move it
