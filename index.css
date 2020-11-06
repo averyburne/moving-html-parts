@@ -48,3 +48,12 @@
 .btn {
   margin-left: 100px;
 }
+
+#drag-box {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  background-color: #ffd800;
+}
