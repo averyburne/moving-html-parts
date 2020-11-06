@@ -133,3 +133,27 @@ document.addEventListener('keyup', function(e) {
     keys.splice(index, 1)
   }
 })
+
+let mouseX = 0;
+let mouseY = 0;
+let startX = 0;
+let startY = 0;
+let locX = 0;
+let locY = 0;
+
+document.onmousemove = function (event) {
+  locX = event.pageX;
+  locY = event.pageY;
+}
+
+const drag = function (event) {
+  event.ondragend = function (event) {
+    let object = this.getBoundingClientRect()
+    startX = object.left
+    startY = object.top
+    mouseX = event.clientX
+    mouseY = event.clientY
+    this.style.left = mouseX + 'px'
+    this.style.top = mouseY + 'px'
+  }
+}
