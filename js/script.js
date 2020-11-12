@@ -151,8 +151,10 @@ const drag = function (event) {
     let object = this.getBoundingClientRect()
     startX = object.left
     startY = object.top
-    mouseX = event.clientX
-    mouseY = event.clientY
+    offsetX = locX - startX
+    offsetY = locY - startY
+    mouseX = event.clientX - offsetX
+    mouseY = event.clientY - offsetY
     this.style.left = mouseX + 'px'
     this.style.top = mouseY + 'px'
   }
