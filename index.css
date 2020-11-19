@@ -49,13 +49,18 @@
   margin-left: 100px;
 }
 
+#pane2 {
+  border: 1px solid black;
+  height: 90vh;
+}
+
 #drag-box {
   height: 100px;
   width: 100px;
   position: absolute;
-  margin-top: 600px;
+  /* margin-top: 600px; */
   margin-bottom: 300px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   top: 100px;
   left: 0px;
   background-color: #ffd800;
