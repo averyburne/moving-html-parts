@@ -159,3 +159,12 @@ const drag = function (event) {
     this.style.top = mouseY + 'px'
   }
 }
+
+const makeVar = function () {
+  let varName = document.getElementById("name-input").value
+  let varVal = document.getElementById("value-input").value
+  if (varVal.match(/^[0-9.-]+$/) !== null) {
+    eval("var " + varName + " = " + varVal + Number(varVal))
+  }
+  document.getElementById("output-var").innerHTML = "Created. " + varName + " equals " + varVal + "<br>Variable " + (eval(varName)) + " is type " + typeof (eval(varName))
+}
