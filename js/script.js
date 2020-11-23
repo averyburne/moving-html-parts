@@ -165,6 +165,10 @@ const makeVar = function () {
   let varVal = document.getElementById("value-input").value
   if (varVal.match(/^[0-9.-]+$/) !== null) {
     eval("var " + varName + " = " + varVal + Number(varVal))
+  } else if (varVal.match(/^[true][false]/) !== null) {
+    eval("var " + varName + " = " + varVal)
+  } else {
+    eval("var " + varName + " = " + varVal)
   }
   document.getElementById("output-var").innerHTML = "Created. " + varName + " equals " + varVal + "<br>Variable " + (eval(varName)) + " is type " + typeof (eval(varName))
 }
