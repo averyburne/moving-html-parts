@@ -32,8 +32,6 @@ document.addEventListener('keydown', function(e) {
   if (keys.includes(e.which) == false) {
     keys.push(e.which)
   }
-  console.log(keys)
-  console.log(keys.includes(83))
   // move right and down
   if (keys.includes(83) && keys.includes(68)) {
     box.css('top', moveBox(height, topValue, 83))
@@ -85,8 +83,6 @@ document.addEventListener('keydown', function(e) {
   if (keys.includes(e.which) == false) {
     keys.push(e.which)
   }
-  console.log(keys)
-  console.log(keys.includes(83))
   // move right and down
   if (keys.includes(40) && keys.includes(39)) {
     box2.css('top', moveBox(height, topValue, 83))
@@ -165,10 +161,11 @@ const makeVar = function () {
   let varVal = document.getElementById("value-input").value
   if (varVal.match(/^[0-9.-]+$/) !== null) {
     eval("var " + varName + " = " + varVal + Number(varVal))
+    console.log('hello')
   } else if (varVal.match(/^[true][false]/) !== null) {
     eval("var " + varName + " = " + varVal)
   } else {
-    eval("var " + varName + " = " + varVal)
+    eval("var " + varName + " = " + '"' + varVal + '"')
   }
-  document.getElementById("output-var").innerHTML = "Created. " + varName + " equals " + varVal + "<br>Variable " + (eval(varName)) + " is type " + typeof (eval(varName))
+  document.getElementById("output-var").innerHTML = "Created " + varName + " equals " + varVal + "<br>Variable " + (eval(varName)) + " is type " + typeof (eval(varName))
 }
