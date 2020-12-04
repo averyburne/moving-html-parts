@@ -52,6 +52,8 @@
 #pane2 {
   border: 1px solid black;
   height: 40vh;
+  left: 10px;
+  top: 350px;
 }
 
 #drag-box {
