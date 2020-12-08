@@ -136,7 +136,6 @@ let startX = 0;
 let startY = 0;
 let locX = 0;
 let locY = 0;
-document.getElementById('pane2').style.top = '371px';
 
 document.onmousemove = function (event) {
   locX = event.pageX;
@@ -145,10 +144,8 @@ document.onmousemove = function (event) {
 
 const drag = function (event) {
   event.ondragend = function (event) {
-    let maxLeft = document.getElementById('pane2').style.left
-    let maxTop = document.getElementById('pane2').style.top
-    console.log('henlo')
-    console.log(maxTop)
+    let maxLeft = Math.round(document.getElementById('pane2').getBoundingClientRect().left)
+    let maxTop = Math.round(document.getElementById('pane2').getBoundingClientRect().top)
     let object = this.getBoundingClientRect()
     startX = object.left
     startY = object.top
@@ -157,13 +154,16 @@ const drag = function (event) {
     mouseX = event.clientX - offsetX
     mouseY = event.clientY - offsetY
     this.style.left = mouseX + 'px'
-    console.log(mouseY)
     if (mouseY > parseInt(maxTop, 10)) {
       this.style.top = mouseY + 'px'
     } else {
-      this.style.top = '371px'
+      this.style.top = parseInt(maxTop, 10) + 1 + 'px'
     }
-    console.log(this.style.top)
+    if (mouseX > parseInt(maxLeft, 10)) {
+      this.style.left = mouseX + 'px'
+    } else {
+      this.style.left = parseInt(maxLeft, 10) + 1 + 'px'
+    }
   }
 }
 
