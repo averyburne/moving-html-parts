@@ -146,10 +146,13 @@ const drag = function (event) {
   event.ondragend = function (event) {
     let maxLeft = Math.round(document.getElementById('pane2').getBoundingClientRect().left)
     let maxTop = Math.round(document.getElementById('pane2').getBoundingClientRect().top)
-    let object = this.getBoundingClientRect()
     let maxBottom = Math.round(document.getElementById('pane2').getBoundingClientRect().height) + maxTop
+    let maxRight = Math.round(document.getElementById('pane2').getBoundingClientRect().width) + maxLeft
+    let object = this.getBoundingClientRect()
     console.log('max Bottom is ' + maxBottom)
     console.log('max Top is ' + maxTop)
+    console.log('max Left is ' + maxLeft)
+    console.log('max Right is ' + maxRight)
     startX = object.left
     startY = object.top
     offsetX = locX - startX
@@ -165,10 +168,12 @@ const drag = function (event) {
     } else {
       this.style.top = parseInt(maxBottom, 10) - 100 + 'px'
     }
-    if (mouseX > parseInt(maxLeft, 10)) {
+    if (mouseX > (parseInt(maxLeft, 10)) && mouseX + 100 < (parseInt(maxRight, 10))) {
       this.style.left = mouseX + 'px'
-    } else {
+    } else if (mouseX < parseInt(maxLeft, 10)) {
       this.style.left = parseInt(maxLeft, 10) + 1 + 'px'
+    } else {
+      this.style.left = parseInt(maxRight, 10) - 101 + 'px'
     }
   }
 }
