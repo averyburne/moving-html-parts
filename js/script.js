@@ -151,8 +151,6 @@ const drag = function (event) {
     let object = this.getBoundingClientRect()
     console.log('max Bottom is ' + maxBottom)
     console.log('max Top is ' + maxTop)
-    console.log('max Left is ' + maxLeft)
-    console.log('max Right is ' + maxRight)
     startX = object.left
     startY = object.top
     offsetX = locX - startX
@@ -190,4 +188,17 @@ const makeVar = function () {
     eval("var " + varName + " = " + '"' + varVal + '"')
   }
   document.getElementById("output-var").innerHTML = "Created " + varName + " equals " + varVal + "<br>Variable " + (eval(varName)) + " is type " + typeof (eval(varName))
+}
+
+const makeArr = function () {
+  let arrName = document.getElementById("array-name").value
+  let arrSize = document.getElementById("array-size").value
+  let tempVal = document.getElementById("temp-value").value
+  eval('let ' + arrName + ' = ' + "new Array")
+  for (i = 0; i < arrSize; i++) {
+    temp = arrName + '[' + i + '] = ' + tempVal
+    console.log(temp)
+    eval(temp)
+    document.getElementById("output-array").innerHTML += temp + "<br>"
+  }
 }
