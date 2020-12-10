@@ -194,10 +194,9 @@ const makeArr = function () {
   let arrName = document.getElementById("array-name").value
   let arrSize = document.getElementById("array-size").value
   let tempVal = document.getElementById("temp-value").value
-  eval('let ' + arrName + ' = ' + "new Array")
+  eval(arrName + ' = ' + "new Array;")
   for (i = 0; i < arrSize; i++) {
     temp = arrName + '[' + i + '] = ' + tempVal
-    console.log(temp)
     eval(temp)
     document.getElementById("output-array").innerHTML += temp + "<br>"
   }
