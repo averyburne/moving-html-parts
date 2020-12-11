@@ -213,9 +213,10 @@ const finalizeArr = function () {
   let arrSize = document.getElementById("array-size").value
   for (i = 0; i < arrSize; i++) {
     console.log(arrSize)
-    temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
-    eval(temp)
-    document.getElementById("output-array").innerHTML += temp + '<br>'
+    // temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
+    arrName[i] = document.getElementById(`array-item-${i}`).value
+    // eval(temp)
+    document.getElementById("output-array").innerHTML += arrName[i] + '<br>'
   }
   console.log(arrName)
 }
