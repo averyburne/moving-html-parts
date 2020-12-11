@@ -198,10 +198,17 @@ const initiateArr = function () {
   let tempVal = document.getElementById("temp-value").value
   eval(arrName + ' = ' + "new Array;")
   $("#finalize-btn").show()
+  document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
   for (i = 0; i < arrSize; i++) {
     temp = arrName + '[' + i + '] = ' + tempVal
     eval(temp)
-    document.getElementById("output-array").innerHTML += temp + "<br>"
+    document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >`
   }
 }
 
+const finalizeArr = function () {
+  let arrSize = document.getElementById("array-size").value
+  for (i = 0; i < arrSize; i++) {
+    console.log(document.getElementById(`array-tiem-${i}`))
+  }
+}
