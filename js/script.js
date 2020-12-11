@@ -192,11 +192,14 @@ const makeVar = function () {
   document.getElementById("output-var").innerHTML = "Created " + varName + " equals " + varVal + "<br>Variable " + (eval(varName)) + " is type " + typeof (eval(varName))
 }
 
+let arrName
+
 const initiateArr = function () {
-  let arrName = document.getElementById("array-name").value
+  arrName = document.getElementById("array-name").value
   let arrSize = document.getElementById("array-size").value
   let tempVal = document.getElementById("temp-value").value
   eval(arrName + ' = ' + "new Array;")
+  console.log(arrName)
   $("#finalize-btn").show()
   document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
   for (i = 0; i < arrSize; i++) {
@@ -209,6 +212,10 @@ const initiateArr = function () {
 const finalizeArr = function () {
   let arrSize = document.getElementById("array-size").value
   for (i = 0; i < arrSize; i++) {
-    console.log(document.getElementById(`array-item-${i}`).value)
+    console.log(arrSize)
+    temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
+    eval(temp)
+    document.getElementById("output-array").innerHTML += temp + '<br>'
   }
+  console.log(arrName)
 }
