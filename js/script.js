@@ -209,6 +209,6 @@ const initiateArr = function () {
 const finalizeArr = function () {
   let arrSize = document.getElementById("array-size").value
   for (i = 0; i < arrSize; i++) {
-    console.log(document.getElementById(`array-tiem-${i}`))
+    console.log(document.getElementById(`array-item-${i}`).value)
   }
 }
