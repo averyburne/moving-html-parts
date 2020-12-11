@@ -3,6 +3,8 @@ const box2 = $('#moving-box2')
 const pane = $('#pane')
 const ball = $('#ball')
 
+$("#finalize-btn").hide()
+
 const moveBox = function (maxValue, currentValue, key) {
   // checks to make sure the box is still within bounds
   if (currentValue + 10 >= maxValue && (key === 40 || key === 39 || key === 83 || key === 68)) {
@@ -190,14 +192,16 @@ const makeVar = function () {
   document.getElementById("output-var").innerHTML = "Created " + varName + " equals " + varVal + "<br>Variable " + (eval(varName)) + " is type " + typeof (eval(varName))
 }
 
-const makeArr = function () {
+const initiateArr = function () {
   let arrName = document.getElementById("array-name").value
   let arrSize = document.getElementById("array-size").value
   let tempVal = document.getElementById("temp-value").value
   eval(arrName + ' = ' + "new Array;")
+  $("#finalize-btn").show()
   for (i = 0; i < arrSize; i++) {
     temp = arrName + '[' + i + '] = ' + tempVal
     eval(temp)
     document.getElementById("output-array").innerHTML += temp + "<br>"
   }
 }
+
