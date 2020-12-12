@@ -197,14 +197,13 @@ let arrName
 const initiateArr = function () {
   arrName = document.getElementById("array-name").value
   let arrSize = document.getElementById("array-size").value
-  let tempVal = document.getElementById("temp-value").value
   eval(arrName + ' = ' + "new Array;")
   console.log(arrName)
   $("#finalize-btn").show()
   document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
   for (i = 0; i < arrSize; i++) {
-    temp = arrName + '[' + i + '] = ' + tempVal
-    eval(temp)
+    // temp = arrName + '[' + i + '] = ' + tempVal
+    // eval(temp)
     document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >`
   }
 }
