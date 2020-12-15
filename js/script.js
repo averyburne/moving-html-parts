@@ -194,12 +194,20 @@ const makeVar = function () {
 
 let arrName
 
+const resetForm = function () {
+  // $("#array-name")[0].reset()
+  $("#array-form").trigger('reset')
+  console.log('pp')
+}
+
 const initiateArr = function () {
   arrName = document.getElementById("array-name").value
   let arrSize = document.getElementById("array-size").value
   eval(arrName + ' = ' + "new Array;")
   console.log(arrName)
   $("#finalize-btn").show()
+  $("#submit-array").hide()
+  resetForm()
   document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
   for (i = 0; i < arrSize; i++) {
     // temp = arrName + '[' + i + '] = ' + tempVal
