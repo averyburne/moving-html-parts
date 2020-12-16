@@ -193,16 +193,16 @@ const makeVar = function () {
 }
 
 let arrName
+let arrSize
 
 const resetForm = function () {
   // $("#array-name")[0].reset()
   $("#array-form").trigger('reset')
-  console.log('pp')
 }
 
 const initiateArr = function () {
   arrName = document.getElementById("array-name").value
-  let arrSize = document.getElementById("array-size").value
+  arrSize = document.getElementById("array-size").value
   eval(arrName + ' = ' + "new Array;")
   console.log(arrName)
   $("#finalize-btn").show()
@@ -214,12 +214,14 @@ const initiateArr = function () {
     // eval(temp)
     document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >`
   }
+  console.log(arrSize)
 }
 
 const finalizeArr = function () {
-  let arrSize = document.getElementById("array-size").value
+  // let arrSize = document.getElementById("array-size").value
   for (i = 0; i < arrSize; i++) {
     console.log(arrSize)
+    console.log(arrName)
     // temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
     arrName[i] = document.getElementById(`array-item-${i}`).value
     // eval(temp)
