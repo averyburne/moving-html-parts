@@ -203,7 +203,8 @@ const resetForm = function () {
 const initiateArr = function () {
   arrName = document.getElementById("array-name").value
   arrSize = document.getElementById("array-size").value
-  eval(arrName + ' = ' + "new Array;")
+  arrName = new Array;
+  // eval('let ' + arrName + ' = ' + "new Array;")
   console.log(arrName)
   $("#finalize-btn").show()
   $("#submit-array").hide()
