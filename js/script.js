@@ -203,12 +203,12 @@ const resetForm = function () {
 const initiateArr = function () {
   arrName = document.getElementById("array-name").value
   arrSize = document.getElementById("array-size").value
-  arrName = new Array;
+  arrName = []
   // eval('let ' + arrName + ' = ' + "new Array;")
   console.log(arrName)
   $("#finalize-btn").show()
   $("#submit-array").hide()
-  resetForm()
+  // resetForm()
   document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
   for (i = 0; i < arrSize; i++) {
     // temp = arrName + '[' + i + '] = ' + tempVal
@@ -227,6 +227,6 @@ const finalizeArr = function () {
     arrName[i] = document.getElementById(`array-item-${i}`).value
     // eval(temp)
     document.getElementById("output-array").innerHTML += arrName[i] + '<br>'
+    console.log(arrName)
   }
-  console.log(arrName)
 }
