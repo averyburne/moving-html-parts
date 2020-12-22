@@ -225,8 +225,9 @@ const finalizeArr = function () {
     console.log(arrName)
     // temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
     arrName[i] = document.getElementById(`array-item-${i}`).value
+    console.log(document.getElementById(`array-item-${i}`).value)
     // eval(temp)
-    document.getElementById("output-array").innerHTML += arrName[i] + '<br>'
+    document.getElementById("output-array2").innerHTML += arrName[i] + '<br>'
     console.log(arrName)
   }
 }
