@@ -210,12 +210,17 @@ const initiateArr = function () {
   $("#submit-array").hide()
   // resetForm()
   document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
-  for (i = 0; i < arrSize; i++) {
-    // temp = arrName + '[' + i + '] = ' + tempVal
-    // eval(temp)
-    document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >`
+  if (arrSize > 100) {
+    document.getElementById("output-array").innerHTML = "<p>Array must be less than 100</p>"
+  } else if (arrSize < 1) {
+    document.getElementById("output-array").innerHTML = "<p>Array Size must be greater than 1</p>"
+  } else {
+    for (i = 0; i < arrSize; i++) {
+      // temp = arrName + '[' + i + '] = ' + tempVal
+      // eval(temp)
+      document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >`
+    }
   }
-  console.log(arrSize)
 }
 
 const finalizeArr = function () {
@@ -230,4 +235,5 @@ const finalizeArr = function () {
     document.getElementById("output-array2").innerHTML += arrName[i] + '<br>'
     console.log(arrName)
   }
+  resetForm()
 }
