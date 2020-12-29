@@ -214,7 +214,9 @@ const initiateArr = function () {
     document.getElementById("output-array").innerHTML = "<p>Array must be less than 100</p>"
   } else if (arrSize < 1) {
     document.getElementById("output-array").innerHTML = "<p>Array Size must be greater than 1</p>"
-  } else {
+  } else if (typeof(arrSize) != 'number') {
+    document.getElementById("output-array").innerHTML = "<p>Please enter a number</p>"
+    } else {
     for (i = 0; i < arrSize; i++) {
       // temp = arrName + '[' + i + '] = ' + tempVal
       // eval(temp)
