@@ -205,8 +205,6 @@ const initiateArr = function () {
   arrSize = document.getElementById("array-size").value
   arrName = []
   // eval('let ' + arrName + ' = ' + "new Array;")
-  $("#finalize-btn").show()
-  $("#submit-array").hide()
   // resetForm()
   document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
   if (arrSize > 100) {
@@ -214,8 +212,9 @@ const initiateArr = function () {
   } else if (arrSize < 1) {
     document.getElementById("output-array").innerHTML = "<p>Array Size must be at least 1</p>"
   } else if (arrSize >= 1 && arrSize <= 100) {
-    console.log(arrSize)
-    console.log(typeof(arrSize))
+    $("#finalize-btn").show()
+    $("#submit-array").hide()
+    document.getElementById("output-array").innerHTML = ''
     for (i = 0; i < arrSize; i++) {
       // temp = arrName + '[' + i + '] = ' + tempVal
       // eval(temp)
@@ -223,8 +222,6 @@ const initiateArr = function () {
     } 
   } else {
     document.getElementById("output-array").innerHTML = "<p>Please enter a number</p>"
-    console.log(arrSize)
-    console.log(typeof(arrSize))
     }
 }
 
