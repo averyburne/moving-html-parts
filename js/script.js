@@ -182,7 +182,7 @@ const makeVar = function () {
   let varName = document.getElementById("name-input").value
   let varVal = document.getElementById("value-input").value
   if (varVal.match(/^[0-9.-]+$/) !== null) {
-    eval("var " + varName + " = " + varVal + Number(varVal))
+    eval("var " + varName + " = " + Number(varVal))
     console.log('hello')
   } else if (varVal.match(/^[true][false]/) !== null) {
     eval("var " + varName + " = " + varVal)
@@ -205,7 +205,6 @@ const initiateArr = function () {
   arrSize = document.getElementById("array-size").value
   arrName = []
   // eval('let ' + arrName + ' = ' + "new Array;")
-  console.log(arrName)
   $("#finalize-btn").show()
   $("#submit-array").hide()
   // resetForm()
@@ -213,16 +212,20 @@ const initiateArr = function () {
   if (arrSize > 100) {
     document.getElementById("output-array").innerHTML = "<p>Array must be less than 100</p>"
   } else if (arrSize < 1) {
-    document.getElementById("output-array").innerHTML = "<p>Array Size must be greater than 1</p>"
-  } else if (typeof(arrSize) != 'number') {
-    document.getElementById("output-array").innerHTML = "<p>Please enter a number</p>"
-    } else {
+    document.getElementById("output-array").innerHTML = "<p>Array Size must be at least 1</p>"
+  } else if (arrSize >= 1 && arrSize <= 100) {
+    console.log(arrSize)
+    console.log(typeof(arrSize))
     for (i = 0; i < arrSize; i++) {
       // temp = arrName + '[' + i + '] = ' + tempVal
       // eval(temp)
-      document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >`
+      document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >` + '<br>'
+    } 
+  } else {
+    document.getElementById("output-array").innerHTML = "<p>Please enter a number</p>"
+    console.log(arrSize)
+    console.log(typeof(arrSize))
     }
-  }
 }
 
 const finalizeArr = function () {
