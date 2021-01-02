@@ -4,6 +4,7 @@ const pane = $('#pane')
 const ball = $('#ball')
 
 $("#finalize-btn").hide()
+$("#reset-btn").hide()
 
 const moveBox = function (maxValue, currentValue, key) {
   // checks to make sure the box is still within bounds
@@ -200,6 +201,10 @@ const resetForm = function () {
   $("#array-form").trigger('reset')
 }
 
+const resetArr = function () {
+  document.getElementById("output-array").innerHTML = ''
+}
+
 const initiateArr = function () {
   arrName = document.getElementById("array-name").value
   arrSize = document.getElementById("array-size").value
@@ -213,6 +218,7 @@ const initiateArr = function () {
     document.getElementById("output-array").innerHTML = "<p>Array Size must be at least 1</p>"
   } else if (arrSize >= 1 && arrSize <= 100) {
     $("#finalize-btn").show()
+    $("#reset-btn").show()
     $("#submit-array").hide()
     document.getElementById("output-array").innerHTML = ''
     for (i = 0; i < arrSize; i++) {
@@ -228,14 +234,11 @@ const initiateArr = function () {
 const finalizeArr = function () {
   // let arrSize = document.getElementById("array-size").value
   for (i = 0; i < arrSize; i++) {
-    console.log(arrSize)
-    console.log(arrName)
     // temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
     arrName[i] = document.getElementById(`array-item-${i}`).value
-    console.log(document.getElementById(`array-item-${i}`).value)
     // eval(temp)
     document.getElementById("output-array2").innerHTML += arrName[i] + '<br>'
-    console.log(arrName)
   }
+  document.getElementById("output-array").innerHTML = ''
   resetForm()
 }
