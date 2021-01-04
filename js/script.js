@@ -208,7 +208,7 @@ const resetArr = function () {
 const initiateArr = function () {
   arrName = document.getElementById("array-name").value
   arrSize = document.getElementById("array-size").value
-  arrName = []
+  arr = []
   // eval('let ' + arrName + ' = ' + "new Array;")
   // resetForm()
   document.getElementById('output-array').innerHTML += "Enter your array items" + "<br>"
@@ -225,7 +225,7 @@ const initiateArr = function () {
       // temp = arrName + '[' + i + '] = ' + tempVal
       // eval(temp)
       document.getElementById("output-array").innerHTML += `<input type='text' id='array-item-${i}' >` + '<br>'
-    } 
+    }
   } else {
     document.getElementById("output-array").innerHTML = "<p>Please enter a number</p>"
     }
@@ -235,14 +235,14 @@ const finalizeArr = function () {
   // let arrSize = document.getElementById("array-size").value
   document.getElementById("output-array2").innerHTML = "The array " + arrName + " is ["
   for (i = 0; i < arrSize; i++) {
-    arrName[i] = document.getElementById(`array-item-${i}`).value
+    arr[i] = document.getElementById(`array-item-${i}`).value
     // temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
     console.log(document.getElementById(`array-item-${i}`).value)
     if (i == arrSize - 1) {
-      document.getElementById("output-array2").innerHTML += "'" + arrName[i] + "']"
+      document.getElementById("output-array2").innerHTML += "'" + arr[i] + "']"
     } else {
       // eval(temp)
-      document.getElementById("output-array2").innerHTML += "'" + arrName[i] + "' ,"
+      document.getElementById("output-array2").innerHTML += "'" + arr[i] + "' ,"
     }
   }
   document.getElementById("output-array").innerHTML = ''
