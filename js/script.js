@@ -233,11 +233,15 @@ const initiateArr = function () {
 
 const finalizeArr = function () {
   // let arrSize = document.getElementById("array-size").value
+  document.getElementById("output-array2").innerHTML = "<p>The array " + arrName + " is [</p>"
   for (i = 0; i < arrSize; i++) {
     // temp = arrName + '[' + i + '] = ' + document.getElementById(`array-item-${i}`).value
+    if (i == arrSize - 1) {
+      document.getElementById("output-array2").innerHTML += "'" + arrName[i] + "']"
+    }
     arrName[i] = document.getElementById(`array-item-${i}`).value
     // eval(temp)
-    document.getElementById("output-array2").innerHTML += arrName[i] + '<br>'
+    document.getElementById("output-array2").innerHTML += "'" + arrName[i] + "' ,"
   }
   document.getElementById("output-array").innerHTML = ''
   resetForm()
